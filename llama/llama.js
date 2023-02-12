@@ -1,42 +1,42 @@
-var toInches = 96 ; 			// one inch is 96 points on the Glowforge
+var toInches = 96 ;                     // one inch is 96 points on the Glowforge
 
-var lengthA = 35/16 * toInches;
-var lengthB = 14/16 * toInches;
-var lengthC = 10/16 * toInches; 
-var lengthD = 7/16 * toInches;
-var lengthE = 5/16 * toInches;
-var lengthF = 15/16 * toInches;
+var lengthA = 139/64 * toInches;
+var lengthB = 27/32 * toInches;
+var lengthC = 21/32 * toInches;
+var lengthD = 45/128 * toInches;
+var lengthE = 15/64 * toInches;
+var lengthF = 119/128 * toInches;
 
-var height1 = 22/16 * toInches;
-var height2 = 41/16 * toInches;
-var height2 = 37/16 * toInches;
-var height3 = 5/16 * toInches;
-var height4 = 13/16 * toInches;
-var height5 = 11/16 * toInches;
+var height1 = 159/128 * toInches;
+var height2 = 335/128 * toInches;
+var height3 = 19/64 * toInches;
+var height4 = 107/128 * toInches;
+var height5 = 23/32 * toInches;
+var height6 = 1/4 * toInches;
 
-var offset1 = 1/4 * toInches; // tweak this to shift center channel from right to left
+var offset1 = 1/8 * toInches; // tweak this to chop some off the top.
 
 var center = view.center;
-var point1 = new Point(center.x-lengthF+offset1,center.y);
+var point0 = new Point(center.x+offset1,center.y);
+var point1 = new Point(center.x-lengthF,center.y);
 var point2 = new Point(point1.x,point1.y+height2-height3);
 var point3 = new Point(point2.x-lengthB,point2.y);
 var point4 = new Point(point3.x,point3.y-height2+height3);
-var point5 = new Point(point4.x-lengthC-offset1-lengthD-lengthE,point4.y);
+var point5 = new Point(point4.x-lengthC-lengthD-lengthE,point4.y);
 var point6 = new Point(point5.x,point5.y+height1);
 var point7 = new Point(point6.x+lengthE,point6.y);
-var point8 = new Point(point7.x,point7.y-height1+height3);
+var point8 = new Point(point7.x,point7.y-height1+height3-offset1);
 var point9 = new Point(point8.x+lengthD,point8.y);
-var point10 = new Point(point9.x,point9.y+height2-height3);
+var point10 = new Point(point9.x,point9.y+height2-height3+offset1);
 var point11 = new Point(point10.x+lengthA,point10.y);
-var point12 = new Point(point11.x,point11.y-height2+height3);
+var point12 = new Point(point11.x,point11.y-height2+height3-offset1);
 var point13 = new Point(point12.x+lengthD,point12.y);
-var point14 = new Point(point13.x,point13.y+height4);
+var point14 = new Point(point13.x,point13.y+height4+offset1);
 var point15 = new Point(point14.x+lengthE,point14.y);
-var point16 = new Point(point15.x,point15.y-height5);
-
+var point16 = new Point(point15.x,point15.y-height5-offset1);
 
 var objectPath = new Path();
-objectPath.add(center);
+objectPath.add(point0);
 objectPath.add(point1);
 objectPath.add(point2);
 objectPath.add(point3);
@@ -53,5 +53,13 @@ objectPath.add(point13);
 objectPath.add(point14);
 objectPath.add(point15);
 objectPath.add(point16);
-objectPath.add(center);
+objectPath.add(point0);
 objectPath.strokeColor = 'red';
+
+// chopping off the top didn't quite work
+// var point20 = new Point(center.x+lengthD,center.y+height6);
+// var point21 = new Point(center.x-lengthG,center.y + height6);
+// var line = new Path();
+// line.strokeColor = 'red';
+// line.add(point20);
+// line.add(point21);
