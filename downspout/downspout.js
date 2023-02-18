@@ -3,14 +3,14 @@ var toInches = 96 ;                     // one inch is 96 points on the Glowforg
 // chipboard test fit
 // .06 thick / 340 speed / 100% power
 
-var lengthA = (3+9/16) * toInches;
-var lengthB = 3.25 * toInches;
-var lengthC = (2+3/8) * toInches;
+var lengthA = (3+9/16) * toInches; // Width of the porch support
+var lengthB = 3.25 * toInches; // Width of the downspout
+var lengthC = (2+3/8) * toInches; // Length of the downspout
 
-var offset1 = 3.45 * toInches;
-var offset2 = 1.25 * toInches; // top
-var offset2 = 1 * toInches; // bottom
-var offset3 = 1 * toInches;
+var offset1 = 3.45 * toInches; // How far into the porch support to go
+var offset2 = 1.25 * toInches; // top // How much space between the porch and the downspout
+var offset2 = 1 * toInches; // bottom 
+var offset3 = 1 * toInches; // How much meat to offset everything for support
 
 var center = view.center;
 var point1 = new Point(center.x-offset1-offset2,center.y);
@@ -29,7 +29,7 @@ var point13 = new Point(point12.x-lengthC,point12.y);
 var point14 = new Point(point13.x,point12.y+lengthB);
 var point15 = new Point(point14.x+lengthC,point14.y);
 
-var objectPath = new Path();
+var objectPath = new Path(); // base
 objectPath.add(center);
 objectPath.add(point1);
 objectPath.add(point2);
@@ -45,7 +45,7 @@ objectPath.add(point11);
 objectPath.add(center);
 objectPath.strokeColor = 'red';
 
-var objectPath2 = new Path();
+var objectPath2 = new Path(); // downspout
 objectPath2.add(point12);
 objectPath2.add(point13);
 objectPath2.add(point14);
