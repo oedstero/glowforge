@@ -15,6 +15,7 @@ var height5 = 23/32 * toInches;
 var height6 = 1/4 * toInches;
 
 var offset1 = 1/8 * toInches; // tweak this to chop some off the top.
+var offset1 = .2 * toInches; // which one is better?
 
 var center = view.center;
 var point0 = new Point(center.x+offset1,center.y);
